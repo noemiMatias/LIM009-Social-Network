@@ -11,10 +11,20 @@
   <h1>Empezamos con Sesion</h1>
   <div id="root"></div>
   <div id="container"></div>
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script>
-
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+  <script>
+          // Initialize Firebase
+          // TODO: Replace with your project's customized code snippet
+          var config = {
+            apiKey: "AIzaSyBA0RSvroCJctftZYX4PslIpqJ4caZtNco",
+            authDomain: "mi-pimeraredsocial.firebaseapp.com",
+            databaseURL: "https://mi-pimeraredsocial.firebaseio.com",
+            projectId: "mi-pimeraredsocial",
+            storageBucket: "mi-pimeraredsocial.appspot.com",
+            messagingSenderId: "1:797512164640:web:58ea75e79ef07fee",
+          };
+          firebase.initializeApp(config);
+         </script>
   <script type= "module" src = "main.js"></script>
 </body>
 </html>
