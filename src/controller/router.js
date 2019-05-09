@@ -1,2 +1,17 @@
+import {components} from "../viewTemplates/components.js"
 
-// ¿aqui iran mis rutas de vistas?
+export const changeView = (route) => {
+    const root = document.getElementById('root');
+    root.innerHTML='';
+switch (route) {
+   case '': {
+       return components.login();
+    }
+        
+      break;
+
+  default: { return components.register()}
+      break;
+ }
+    console.log(route)
+}
