@@ -4,11 +4,12 @@ import {signInEvent, signInGoogleEvent} from "../controllerView/controllerVistaL
 export default () => {
      const formElement = document.createElement('form');
      const formSignIn = `
-    <form>
-     <input id ="email" type="email" placeholder="email"/>
-     <input id ="password" type="password" placeholder="contraseña"/>
-     <button id = "btn-signIn"type = "button" > Log In </button>
-     <img id ="signIn-google" src="img/google.png">
+    <form >
+     <input id ="email" type="email" placeholder="email" class ="input-login"/>
+     <input id ="password" type="password" placeholder="&#128272; contraseña" class ="input-login"/>
+     <button id = "btn-signIn" type = "button" class="btn-login" > Log In </button>
+     <p> Accede por </p>
+     <img id ="signIn-google" class="img-google" alt="imagen de google" height="30" width="36"src="img/google.png">
 
      <p>Si no tienes una cuenta <a href="#register">Regístrate Aquí</a>
     
@@ -24,5 +25,7 @@ export default () => {
 
   const botonGoogle = formElement.querySelector('#signIn-google');
   botonGoogle.addEventListener('click',signInGoogleEvent);
+
+  
  return formElement;
 }

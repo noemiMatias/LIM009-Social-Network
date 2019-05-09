@@ -1,5 +1,5 @@
 
-import { registerEvent,  } from "../controllerView/controllerVistaRegister.js"
+import { registerEvent } from "../controllerView/controllerVistaRegister.js"
 
 export default() => {
     const formRegister = document.createElement('form');
