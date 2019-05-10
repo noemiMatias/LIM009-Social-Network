@@ -14,10 +14,10 @@ export default () => {
      <p>Si no tienes una cuenta <a href="#register">Regístrate Aquí</a>
     
     </form>`;
-/* <p>Si no tiens una cuenta <a href='#/register'>Regístrate  aquí</a></p> */
+
     
     formElement.innerHTML= formSignIn;
-     // return formElement;
+    
 
 
      const botonSignIn = formElement.querySelector('#btn-signIn');

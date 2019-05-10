@@ -4,12 +4,15 @@
  import {changeView} from "./controller/router.js"
 
  const init = ()=>{
-    // const root = document.getElementById('root');
+   
+    changeView(window.location.hash)
     window.addEventListener('hashchange',() => {
-        root.appendChild(changeView(window.location.hash))
+       changeView(window.location.hash)
+        // root.appendChild(changeView(window.location.hash))
+        console.log("cAMBIO DE HASH")
     })
     console.log('holi ya inicie')
-    root.appendChild(changeView(window.location.hash))
+    // root.appendChild(changeView(window.location.hash))
  }
  window.addEventListener('load',init)
 
