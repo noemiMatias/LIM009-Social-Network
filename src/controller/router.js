@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {components} from "../viewTemplates/components.js"
 
 export const changeView = (route) => {
@@ -19,3 +20,5 @@ switch (route) {
  }
    
 }
+=======
+>>>>>>> 783d540ca3dacd05fd81f19ac1227815f4cdeeca
