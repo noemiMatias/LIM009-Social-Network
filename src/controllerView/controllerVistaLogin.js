@@ -10,5 +10,7 @@ export const signInEvent = () => {
 }
 
 export const signInGoogleEvent= () => {
-  signInGoogle();
+  signInGoogle().then(()=>{
+    console.log("hola")
+  })
 }
