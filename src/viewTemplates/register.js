@@ -4,10 +4,10 @@ import { registerEvent } from "../controllerView/controllerVistaRegister.js"
 export default() => {
     const formRegister = document.createElement('form');
     const register = `
-    
-     <input id ="email-register" type="email" placeholder="email"/>
-     <input id ="password-register" type="password" placeholder="contraseña"/>
-     <button  id="btn-register" type = "button" > Registrarse </button>
+    <img id ="logo" class="img-logo" alt="imagen ideas accion ambiental" src="img/logo.png">
+     <input id ="email-register" type="email" placeholder="email" class ="input-login"/>
+     <input id ="password-register" type="password" placeholder="contraseña" class ="input-login"/>
+     <button  id="btn-register" type = "button"class="btn-login" > Registrarse </button>
     `;
     
     formRegister.innerHTML= register;

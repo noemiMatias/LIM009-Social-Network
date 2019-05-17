@@ -1,6 +1,5 @@
 
 
-<<<<<<< HEAD
  import {changeView} from "./controller/router.js"
 
  const init = ()=>{
@@ -15,19 +14,13 @@
     
  }
  window.addEventListener('load',init)
-=======
-
->>>>>>> 783d540ca3dacd05fd81f19ac1227815f4cdeeca
 
 
 
 
 
 
-<<<<<<< HEAD
-=======
 
 
 
 
->>>>>>> 783d540ca3dacd05fd81f19ac1227815f4cdeeca

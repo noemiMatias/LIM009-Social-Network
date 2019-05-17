@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {components} from "../viewTemplates/components.js"
 
 export const changeView = (route) => {
@@ -11,14 +10,12 @@ switch (route) {
    
   case '#register':
   { return root.appendChild(components.register())};
-     
-        
-
+   case '#wall':
+  { return root.appendChild(components.wall())}; 
+ 
   default: { 
     }
       break;
  }
    
 }
-=======
->>>>>>> 783d540ca3dacd05fd81f19ac1227815f4cdeeca
