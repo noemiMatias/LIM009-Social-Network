@@ -1,29 +1,27 @@
 
 import { login, signInGoogle, signInFacebook } from "../lib/firebase.js"
-import { changeView } from "../controller/router.js"
-import { collectionUser, traerDatos } from '../lib/firestore.js'
+
+
 //  import wall from "../viewTemplates/wall.js";
 
-// import { traerDatos } from '../lib/firestore.js'
+import {leerDatos  } from '../lib/firestore.js'
 
 export const signInEvent = (e) => {
   event.preventDefault()
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
-  login(email, password).then(()=>{
-
-    traerDatos()
-        changeView('#wall')
-        console.log("estoy en el muro")
+  login(email, password).then((response) => {
+    leerDatos(response.user)
+    console.log("estoy en el muro")
   })
-  
-    
 
-.catch(error => {
-  const errorCode = error.code;
-  const  errorMessage = error.message;
-  alert( `Error: ${errorMessage} Tipo:${errorCode}`)
-})
+
+
+    .catch(error => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(`Error: ${errorMessage} Tipo:${errorCode}`)
+    })
 }
 
 // traerDatos().then((doc) => {
@@ -39,10 +37,10 @@ export const signInEvent = (e) => {
 
 
 export const signInGoogleEvent = () => {
-  signInGoogle().then(( result ) => {
+  signInGoogle().then((result) => {
 
     console.log(result)
-    collectionUser(nameUser,email,uidUser)
+    collectionUser(nameUser, email, uidUser)
   })
 }
 export const signInEventfacebook = () => {
@@ -50,26 +48,25 @@ export const signInEventfacebook = () => {
 }
 
 
- export const initFirebaseAuth = () => {
+export const initFirebaseAuth = () => {
   firebase.auth().onAuthStateChanged(authStateObserver);
- }
+}
 
- const authStateObserver = (user) => {
-    if (user) {
-     const nameUser = user.displayName;
+const authStateObserver = (user) => {
+  if (user) {
+    const nameUser = user.displayName;
     const email = user.email;
     const uidUser = user.uid;
-    
-     
-   console.log('estas activo')
 
-     } else {
+
+    console.log('estas activo')
+
+  } else {
     console.log('no estas activo')
-      }
- 
-//     //  traerDatos(uidUser)
-    // console.log(traerDatos(uidUser))
-   
-//  return uidUser
-    }
-  
+  }
+
+  //     //  traerDatos(uidUser)
+  // console.log(traerDatos(uidUser))
+
+  //  return uidUser
+}

@@ -13,14 +13,14 @@ export const signInFacebook = () => {
   return firebase.auth().signInWithPopup(provider)
 }
 
-export const signOut = () => {
-//  return firebase.auth().signOut()
+// export const signOut = () => {
+//   // return firebase.auth().signOut()
 
-return firebase.auth().signOut().then(function() {
-  // Sign-out successful.
-}).catch(function(error) {
-  // An error happened.
-});
-  console.log('cerraste sesion')
+// return firebase.auth().signOut().then(function() {
+//   // Sign-out successful.
+// }).catch(function(error) {
+//   // An error happened.
+// });
+//   console.log('cerraste sesion')
 
-}
+// }

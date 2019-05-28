@@ -1,41 +1,49 @@
-
+import { changeView } from "../controller/router.js"
 const db = firebase.firestore();
 // funcion firestore para obtener foto, correo y nombre de usuario
-export const collectionUser = (uid,name,email) => {
-  return db.collection("user").doc(uid).set({
-    uid:uid,
-    name:name,// sale displayname null xq?
-     email:email,
-    
-    // photoUser: user.photoURL
-    //  photo:photoUser
-    //aca podria haber usado el currentuser
-  })
-}
-// leer datos y traer de usuarios
-export const traerDatos = () => {
-  return db.collection("user").get().then(function(querySnapshot) {
-    querySnapshot.forEach(function(doc) {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-    });
+export const collectionUser = (user) => {
+  db.collection("user").doc(`${user.uidUser}`).set(user)
+.then(function() {
+    console.log("Document successfully written!");
+})
+.catch(function(error) {
+    console.error("Error writing document: ", error);
 });
 
-//   const docRef = db.collection("user").doc(`${uid}`);
-//   return docRef.get()
-//  .then((doc) => {
-//     if (doc.exists) {
-//         console.log(doc.data());
-//     } else {
-//         // doc.data() will be undefined in this case
-//         // console.log("No such document!");
-//     }
-// }).catch(function (error) {
-//     console.log("Error getting document:", error);
-// });
+
+
+}
+
+// leer datos y traer de usuarios
+export const traerDatos = () => {
+  return db.collection("user").get().then(function (querySnapshot) {
+    querySnapshot.forEach(function (doc) {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+    });
+  });
+}
+export const leerDatos = (user) => {
+  const docRef = db.collection("user").doc(`${user.uid}`);
+
+  docRef.get().then(function (doc) {
+    if (doc.exists) {
+
+      changeView('#wall', doc.data())
+      console.log(doc.data())
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  }).catch(function (error) {
+    console.log("Error getting document:", error);
+  });
+}
+
+
  
   
-}
+
 // export const currentUser = () =>{
 //  const user = firebase.auth().currentUser;
 //  const name, email, photoUrl, uid, emailVerified;

@@ -1,7 +1,7 @@
 import {components} from "../viewTemplates/components.js"
 
 
-export const changeView = (route) => {
+export const changeView = (route,obj) => {
     const root = document.getElementById('root');
     root.innerHTML='';
     console.log(route)
@@ -15,7 +15,7 @@ switch (route) {
    
   };
    case '#wall':{
-    root.appendChild(components.wall())
+    root.appendChild(components.wall(obj))
   }; 
  
   default: { 

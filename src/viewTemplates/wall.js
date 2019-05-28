@@ -1,12 +1,16 @@
 import {showPostEvent} from "../controllerView/controllerVistaWall.js";
-import {traerDatos} from"../lib/firestore.js"
-import { signOut } from "../lib/firebase.js";
-// import { changeView } from "../controller/router.js";
 
-export default() => {
+
+// import { changeView } from "../controller/router.js";
+// let obj = leerDatos(response.user)
+export default(obj) => {
     const sectionWall = document.createElement('section');
     // aqui creare el cuadrado dque contenga la foto y
-    const  postContent = `
+    const  postContent = ` <div id="profileUser">
+    <p class="dateUser"> ${obj.name}</p>
+    <p class="dateUser">${obj.email}</p>
+    <figure><img class="img-userDefault" src=" ${obj.photoUser}"> </figure>
+     </div>
     <form>
      <input id ="post" type="texto" placeholder = "¿Que quieres compartir?" class ="input-post"/>
      <select>
@@ -26,12 +30,12 @@ export default() => {
     // const pintarComentario = sectionWall.querySelector('#pintar-comentario');
     // leerDatos()
 
-     const userProfile = sectionWall.querySelector("user-Profile")
-     userProfile.innerHTML='';
-     userProfile.innerHTML= `<div id=user-profile> <img height="70" width="60"  src="img/usuario.png"</div> 
-     `
-    // const cerrarSesion = sectionWall.querySelector('#btn-cerrar-sesion');
-    // cerrarSesion.addEventListener('click', signOut()
+    //  const userProfile = sectionWall.querySelector("user-Profile")
+    //  userProfile.innerHTML='';
+    //  userProfile.innerHTML= `<div id=user-profile> <img height="70" width="60"  src="img/usuario.png"</div> 
+    //  `
+    // // const cerrarSesion = sectionWall.querySelector('#btn-cerrar-sesion');
+    // // cerrarSesion.addEventListener('click', signOut()
    
 
 

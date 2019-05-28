@@ -5,7 +5,12 @@
     font-family:sans-serif;
     box-sizing:border-box;
 }
-
+.img-userDefault{
+    height: 100px;
+    width: 100px;
+    margin: auto;
+   
+}
 .img-logo{
     height: 200px;
     width: 200px;
