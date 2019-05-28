@@ -1,14 +1,13 @@
-// deberia importar funcion firebase.colecction
- import {createPost} from "../lib/firebase.js"
+// deberia importar funcion firestore.colecction
+ import {collectionPost} from "../lib/firestore.js"
  
-export const wallEvent = () =>{
-    const textPost = document.querySelector('#post').value;
-   console.log(textPost)
-   createPost({
-       content: textPost,
-       uid: firebase.auth().currentUser.uid
-   })
-//deberia ir funcion firestore.collection y se guardara en firebase
-// Add a new document with a generated id.
+ 
+export const showPostEvent = (e) =>{
+    event.preventDefault()
+    const post = document.querySelector('#post').value;
+    collectionPost(post)
+   
+    
 
+    
  }

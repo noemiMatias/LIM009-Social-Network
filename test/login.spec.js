@@ -35,7 +35,7 @@ describe('signInGoogle', () => {
 it('Debería iniciar sesion con gmail', () => {
   return signInGoogle()
     .then((user)=> {
-      console.log(user)
+      // console.log(user)
       expect(user.isAnonymous).toBe(false)  
     })    
   });
