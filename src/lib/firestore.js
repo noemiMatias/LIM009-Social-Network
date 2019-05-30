@@ -41,34 +41,32 @@ export const leerDatos = (user) => {
 }
 
 
- 
-  
 
-// export const currentUser = () =>{
-//  const user = firebase.auth().currentUser;
-//  const name, email, photoUrl, uid, emailVerified;
-// if (user != null) {
-//   name = user.displayName;
-//   email = user.email;
-//  photoUrl = user.photoURL;
-//  emailVerified = user.emailVerified;
-//  uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-// //                    // this value to authenticate with your backend server, if
-// //                    // you have one. Use User.getToken() instead.
-//  }
-// // }
-// // funcion para crear post
 export const collectionPost = (post) => {
   firebase.firestore().collection("post").add({
-    textPost: post
-    // likelike,
-    // privacity:privacity,
-    // uidPost:uidPost
+    textPost: post,
+    
+    
   })
-    .then(function (docRef) {
-      console.log("Document written with ID: ", docRef.id);
-    })
-    .catch(function (error) {
-      console.error("Error adding document: ", error);
-    });
+  
 }
+ 
+export const readPost = () => {
+    const containerPost = document.querySelector('#')
+    return firebase.firestore().collection("notes").onSnapshot((querySnapshot) => {
+       containerPost.innerHTML = ''; 
+      querySnapshot.forEach((doc) => {
+        /* console.log(doc.id, " => ", doc.data()); */
+        containerPost.innerHTML += `<form id='formPost' class= "form">
+      <textarea  class=estilotextarea  name="texto" spellcheck="true">${doc.data().post}</textarea>
+      <button id=${doc.id}  type= 'button' class= 'form_button'>Eliminar</button>
+      <button type= 'button' class= 'form_button'>Editar</button>
+      </form>
+      `
+        containerPost.addEventListener('click', (e) => {
+          
+        })
+  
+      })
+    })
+  }

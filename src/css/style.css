@@ -5,17 +5,28 @@
     font-family:sans-serif;
     box-sizing:border-box;
 }
+.profileUser{
+  display: flex;
+  flex-direction: column;
+  font-family: fantasy;
+  margin-left: 150px;
+  margin-top: 50px;
+}
+.dateUser{
+    /* margin-top: 20px; */
+      /* margin-bottom: 5%; */
+    margin-left:150px;
+}
 .img-userDefault{
+    margin-top: 10px;
     height: 100px;
     width: 100px;
-    margin: auto;
    
 }
 .img-logo{
     height: 200px;
     width: 200px;
-    margin: auto;
-   
+    margin: auto; 
 }
 body {
     background:rgb(247, 251, 252);

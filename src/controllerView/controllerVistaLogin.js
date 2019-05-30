@@ -1,10 +1,9 @@
 
-import { login, signInGoogle, signInFacebook } from "../lib/firebase.js"
-
-
-//  import wall from "../viewTemplates/wall.js";
-
+import { login, signInGoogle, signInFacebook } from "../lib/firebase.js";
+import { collectionUser} from "../lib/firestore.js";
+import { changeView } from "../controller/router.js";
 import {leerDatos  } from '../lib/firestore.js'
+
 
 export const signInEvent = (e) => {
   event.preventDefault()
@@ -37,14 +36,30 @@ export const signInEvent = (e) => {
 
 
 export const signInGoogleEvent = () => {
-  signInGoogle().then((result) => {
+  signInGoogle().then((response) => {
+const userObject = {
+  name : response.user.displayName,
+  email :response.user.email,
+  uidUser : response.user.uid,
+  photoUser :response.user.photoURL
+}
+changeView('#wall', userObject )
+            collectionUser(userObject)
 
-    console.log(result)
-    collectionUser(nameUser, email, uidUser)
-  })
+           
+            console.log('esty en el muro')
+                .catch(error => {
+                    console.error(error);
+
+                })
+    
+})
 }
 export const signInEventfacebook = () => {
-  signInFacebook()
+  signInFacebook().then((result)=>{
+    console.log(result)
+  })
+  
 }
 
 
