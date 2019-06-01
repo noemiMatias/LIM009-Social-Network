@@ -23,16 +23,7 @@ export const signInEvent = (e) => {
     })
 }
 
-// traerDatos().then((doc) => {
-//   if (doc.exists) {
-//       console.log(doc.data());
-//   } else {
-//       // doc.data() will be undefined in this case
-//       console.log("No such document!");
-//   }
-// }).catch(function(error) {
-//   console.log("Error getting document:", error);
-// });
+
 
 
 export const signInGoogleEvent = () => {
@@ -72,7 +63,6 @@ const authStateObserver = (user) => {
     const nameUser = user.displayName;
     const email = user.email;
     const uidUser = user.uid;
-
 
     console.log('estas activo')
 

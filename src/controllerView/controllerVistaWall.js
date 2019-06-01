@@ -1,22 +1,31 @@
 // deberia importar funcion firestore.colecction
- import {collectionPost} from "../lib/firestore.js"
- 
- 
-export const showPostEvent = (e) =>{
-    event.preventDefault()
-    const post = document.querySelector('#post').value;
-    collectionPost(post)
-    .then(function (docRef) {
-        console.log("Document written with ID: ", docRef.id);
-        // const uid = docRef.parent.firestore._firestoreClient.credentials.currentUser.uid;
-  
-      })
-      .catch(function (error) {
-        console.error("Error adding document: ", error);
-      });
-} 
-   
-    
+import { collectionPost } from "../lib/firestore.js";
+import { signOut, currentUser } from "../lib/firebase.js"
+import { changeView } from "../controller/router.js";
 
-    
- 
+//crear mi funcion currentuser
+export const signOutEvent = () => {
+  signOut();
+  changeView('')
+}
+
+
+export const showPostEvent = () => {
+  // event.preventDefault()
+  const textpost = document.querySelector('#post').value;
+  const user = currentUser()
+
+
+  const objPost = {
+    textpost: textpost,
+    uidUser: user.uid,
+    privacidad: 'privado',
+    correo: user.email
+  }
+  // console.log(objPost)
+  collectionPost(objPost)
+  document.querySelector('#post').value = '';
+}
+export const updateEvent = () => {
+
+}

@@ -1,4 +1,5 @@
 import {components} from "../viewTemplates/components.js"
+import { initFirebaseAuth} from "../controllerView/controllerVistaLogin.js"
 
 
 export const changeView = (route,obj) => {
@@ -7,9 +8,10 @@ export const changeView = (route,obj) => {
     console.log(route)
 switch (route) {
    case '': 
+   initFirebaseAuth();
    {return root.appendChild(components.login())
   };
-   
+ 
   case '#register':
   { return root.appendChild(components.register())
    

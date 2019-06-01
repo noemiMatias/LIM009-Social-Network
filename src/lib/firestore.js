@@ -42,31 +42,45 @@ export const leerDatos = (user) => {
 
 
 
-export const collectionPost = (post) => {
-  firebase.firestore().collection("post").add({
-    textPost: post,
-    
-    
-  })
+export const collectionPost = (objeto) => {
+  // currentUser(objeto)
+   return db.collection("post").add(objeto)
+   
   
 }
- 
-export const readPost = () => {
-    const containerPost = document.querySelector('#')
-    return firebase.firestore().collection("notes").onSnapshot((querySnapshot) => {
-       containerPost.innerHTML = ''; 
-      querySnapshot.forEach((doc) => {
-        /* console.log(doc.id, " => ", doc.data()); */
-        containerPost.innerHTML += `<form id='formPost' class= "form">
-      <textarea  class=estilotextarea  name="texto" spellcheck="true">${doc.data().post}</textarea>
-      <button id=${doc.id}  type= 'button' class= 'form_button'>Eliminar</button>
-      <button type= 'button' class= 'form_button'>Editar</button>
-      </form>
-      `
-        containerPost.addEventListener('click', (e) => {
-          
-        })
-  
-      })
-    })
+
+
+ export const readData = (callbackTemplate) => {
+  return firebase.firestore().collection("post").onSnapshot(callbackTemplate)
+}
+
+
+
+export const deleteData = (id) => {
+
+ firebase.firestore().collection("post").doc(id).delete()
+   .then(function () {
+      console.log("BORRADocument successfully deleted!"); 
+   })
+   .catch(function (error) {
+     console.error("Error removing document: ", error);
+   });
+} 
+
+export const upDate = () => {
+  const washingtonRef = db.collection("post").doc(id);
+
+  // Set the "capital" field of the city 'DC'
+  return washingtonRef.update({
+    objPost
   }
+  )
+  .then(function() {
+      console.log("Document successfully updated!");
+  })
+  .catch(function(error) {
+      // The document probably doesn't exist.
+      console.error("Error updating document: ", error);
+  });
+}
+

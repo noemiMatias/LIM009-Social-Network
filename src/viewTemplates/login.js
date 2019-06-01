@@ -38,6 +38,6 @@ export default () => {
   const botonfacebook = sectionElement.querySelector("#facebook");
   botonfacebook.addEventListener('click', signInEventfacebook);
 
-   initFirebaseAuth();
+   
   return sectionElement;
 }
