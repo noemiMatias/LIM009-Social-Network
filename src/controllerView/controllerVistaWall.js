@@ -1,5 +1,5 @@
 // deberia importar funcion firestore.colecction
-import { collectionPost } from "../lib/firestore.js";
+import { collectionPost, upDate } from "../lib/firestore.js";
 import { signOut, currentUser } from "../lib/firebase.js"
 import { changeView } from "../controller/router.js";
 
@@ -26,6 +26,10 @@ export const showPostEvent = () => {
   collectionPost(objPost)
   document.querySelector('#post').value = '';
 }
-export const updateEvent = () => {
+export const updateEvent = (textoPost,id) => {
+ const obj={
+   textpost:textoPost
+ }
 
+upDate(obj,id)
 }

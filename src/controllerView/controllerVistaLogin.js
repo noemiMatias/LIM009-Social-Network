@@ -1,8 +1,7 @@
-
 import { login, signInGoogle, signInFacebook } from "../lib/firebase.js";
-import { collectionUser} from "../lib/firestore.js";
+import { collectionUser } from "../lib/firestore.js";
 import { changeView } from "../controller/router.js";
-import {leerDatos  } from '../lib/firestore.js'
+import { leerDatos } from '../lib/firestore.js'
 
 
 export const signInEvent = (e) => {
@@ -28,29 +27,29 @@ export const signInEvent = (e) => {
 
 export const signInGoogleEvent = () => {
   signInGoogle().then((response) => {
-const userObject = {
-  name : response.user.displayName,
-  email :response.user.email,
-  uidUser : response.user.uid,
-  photoUser :response.user.photoURL
-}
-changeView('#wall', userObject )
-            collectionUser(userObject)
+    const userObject = {
+      name: response.user.displayName,
+      email: response.user.email,
+      uidUser: response.user.uid,
+      photoUser: response.user.photoURL
+    }
+    changeView('#wall', userObject)
+    collectionUser(userObject)
 
-           
-            console.log('esty en el muro')
-                .catch(error => {
-                    console.error(error);
 
-                })
-    
-})
+    console.log('esty en el muro')
+      .catch(error => {
+        console.error(error);
+
+      })
+
+  })
 }
 export const signInEventfacebook = () => {
-  signInFacebook().then((result)=>{
+  signInFacebook().then((result) => {
     console.log(result)
   })
-  
+
 }
 
 
@@ -70,8 +69,5 @@ const authStateObserver = (user) => {
     console.log('no estas activo')
   }
 
-  //     //  traerDatos(uidUser)
-  // console.log(traerDatos(uidUser))
-
-  //  return uidUser
+  
 }
