@@ -1,15 +1,17 @@
 import { login, signInGoogle, signInFacebook } from "../lib/firebase.js";
 import { collectionUser } from "../lib/firestore.js";
 import { changeView } from "../controller/router.js";
-import { leerDatos } from '../lib/firestore.js'
+
+
 
 
 export const signInEvent = (e) => {
   event.preventDefault()
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
-  login(email, password).then((response) => {
-    leerDatos(response.user)
+  login(email, password)
+  .then((response) => {
+    changeView("#wall")
     console.log("estoy en el muro")
   })
 
@@ -32,9 +34,13 @@ export const signInGoogleEvent = () => {
       email: response.user.email,
       uidUser: response.user.uid,
       photoUser: response.user.photoURL
+
     }
-    changeView('#wall', userObject)
-    collectionUser(userObject)
+    collectionUser(userObject).then(()=>{
+      changeView('#wall')
+    })
+
+    
 
 
     console.log('esty en el muro')
@@ -53,21 +59,15 @@ export const signInEventfacebook = () => {
 }
 
 
-export const initFirebaseAuth = () => {
-  firebase.auth().onAuthStateChanged(authStateObserver);
-}
-
-const authStateObserver = (user) => {
-  if (user) {
-    const nameUser = user.displayName;
-    const email = user.email;
-    const uidUser = user.uid;
-
-    console.log('estas activo')
-
-  } else {
-    console.log('no estas activo')
-  }
-
+export const initFirebaseAuth = (callback) => {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+callback(user)
+      console.log('estas activo')
   
+    } else {
+      console.log('no estas activo')
+    }
+  });
 }
+

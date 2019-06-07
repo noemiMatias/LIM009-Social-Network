@@ -2,7 +2,7 @@ import { changeView } from "../controller/router.js"
 const db = firebase.firestore();
 // funcion firestore para obtener foto, correo y nombre de usuario
 export const collectionUser = (user) => {
-  db.collection("user").doc(`${user.uidUser}`).set(user)
+ return db.collection("user").doc(`${user.uidUser}`).set(user)
     .then(function () {
       console.log("Document successfully written!");
     })
@@ -26,24 +26,17 @@ export const traerDatos = () => {
 export const leerDatos = (user) => {
   const docRef = db.collection("user").doc(`${user.uid}`);
 
-  docRef.get().then(function (doc) {
-    if (doc.exists) {
-
-      changeView('#wall', doc.data())
-      console.log(doc.data())
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-    }
-  }).catch(function (error) {
-    console.log("Error getting document:", error);
-  });
+  return docRef.get()
+    .then(function (doc) {
+      return doc.data()
+    })
 }
 
 
 
 export const collectionPost = (objeto) => {
   // currentUser(objeto)
+  
   return db.collection("post").add(objeto)
 
 
@@ -51,7 +44,7 @@ export const collectionPost = (objeto) => {
 
 
 export const readData = (callbackTemplate) => {
-  return firebase.firestore().collection("post").onSnapshot(callbackTemplate)
+  return firebase.firestore().collection("post").orderBy("fecha","desc").onSnapshot(callbackTemplate)
 }
 
 

@@ -13,14 +13,17 @@ export const signOutEvent = () => {
 export const showPostEvent = () => {
   // event.preventDefault()
   const textpost = document.querySelector('#post').value;
+  const select = document.querySelector('#select-privacity').value
   const user = currentUser()
 
 
   const objPost = {
     textpost: textpost,
     uidUser: user.uid,
-    privacidad: 'privado',
-    correo: user.email
+    privacidad:select ,
+    correo: user.email,
+    fecha: new Date()
+    
   }
   // console.log(objPost)
   collectionPost(objPost)

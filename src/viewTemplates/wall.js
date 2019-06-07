@@ -17,7 +17,7 @@ export default (obj) => {
   
     <form class ="muro">
      <textarea class="estilotextarea" id ="post" name="texto" placeholder = "¿Que quieres compartir?" class ="texto-post"></textarea>
-     <select>
+     <select id="select-privacity">
        <option value="privado">Privado</option>
        <option value="publico">Publico</option>
      </select>
@@ -35,22 +35,27 @@ export default (obj) => {
   btnComentar.addEventListener('click', showPostEvent);
   const cerrarSesion = sectionWall.querySelector('#btn-singOut');
   cerrarSesion.addEventListener('click', signOutEvent)
-  
+ 
   // " => ", doc.data()
   readData((querySnapshot) => {
     const containerPost = document.querySelector('#containerPost')
     containerPost.innerHTML = '';
     querySnapshot.forEach((doc) => {
       console.log(doc.id, doc.data());
-      containerPost.innerHTML += `
+    if ((doc.data().privacidad === "privado" && doc.data().uidUser ===`${obj.uidUser}`) || (doc.data().privacidad === "publico")) {
+        containerPost.innerHTML += `
         <form id='formPost' class= "form">
         <textarea class="estilotextarea"  name="texto"  data-id="${doc.id}" disabled spellcheck="true">${doc.data().textpost}</textarea>
         
         ${obj.uidUser=== doc.data().uidUser ? `<button type='button'name="btn" class="form_button delete" data-id="${doc.id}">Eliminar</button>
         <button type='button' class= "form_button update" data-id="${doc.id}" >Editar</button>` : ""}
         </form>`
+        
+      }
+      // ,doc.uidUser =!obj.uidUser
       
-    })
+      
+      })
     
     document.querySelectorAll('.delete').forEach(btn =>
       btn.addEventListener('click', (e) => {
@@ -58,6 +63,9 @@ export default (obj) => {
         deleteData(e.target.dataset.id)
       })
     )
+    
+    
+    
     document.querySelectorAll('.update').forEach(btn =>
       btn.addEventListener('click', (e) => {     
         

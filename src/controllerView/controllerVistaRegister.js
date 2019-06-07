@@ -21,8 +21,6 @@ export const registerEvent = () => {
             // const nameUs = response.user.displayName;
             changeView('#wall', userObject)
             collectionUser(userObject)
-
-
             console.log('esty en el muro')
                 .catch(error => {
                     console.error(error);
