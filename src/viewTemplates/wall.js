@@ -18,6 +18,7 @@ export default (obj) => {
     <form class ="muro">
      <textarea class="estilotextarea" id ="post" name="texto" placeholder = "¿Que quieres compartir?" class ="texto-post"></textarea>
      <select id="select-privacity">
+     <option value="estado">Estado</option>
        <option value="privado">Privado</option>
        <option value="publico">Publico</option>
      </select>
@@ -32,7 +33,11 @@ export default (obj) => {
 
   sectionWall.innerHTML = postContent;
   const btnComentar = sectionWall.querySelector('#btn-post');
-  btnComentar.addEventListener('click', showPostEvent);
+  btnComentar.addEventListener('click',()=>{
+    console.log(obj)
+    showPostEvent(obj)
+
+  });
   const cerrarSesion = sectionWall.querySelector('#btn-singOut');
   cerrarSesion.addEventListener('click', signOutEvent)
  
@@ -45,8 +50,15 @@ export default (obj) => {
     if ((doc.data().privacidad === "privado" && doc.data().uidUser ===`${obj.uidUser}`) || (doc.data().privacidad === "publico")) {
         containerPost.innerHTML += `
         <form id='formPost' class= "form">
+<p>${doc.data().name}</p>
+<p>${doc.data().photoUser}</p>
         <textarea class="estilotextarea"  name="texto"  data-id="${doc.id}" disabled spellcheck="true">${doc.data().textpost}</textarea>
-        
+
+        ${obj.uidUser === doc.data().uidUser && doc.data().privacidad === "privado" ?` <select class="changeSelect" data-select="${doc.id}" >
+      
+        <option value="privado">Privado</option>
+        <option value="publico">Publico</option>
+      </select>`:``}
         ${obj.uidUser=== doc.data().uidUser ? `<button type='button'name="btn" class="form_button delete" data-id="${doc.id}">Eliminar</button>
         <button type='button' class= "form_button update" data-id="${doc.id}" >Editar</button>` : ""}
         </form>`
@@ -57,6 +69,8 @@ export default (obj) => {
       
       })
     
+     
+
     document.querySelectorAll('.delete').forEach(btn =>
       btn.addEventListener('click', (e) => {
 
@@ -67,9 +81,7 @@ export default (obj) => {
     
     
     document.querySelectorAll('.update').forEach(btn =>
-      btn.addEventListener('click', (e) => {     
-        
-            console.log(e.target, btn)
+      btn.addEventListener('click', (e) => { 
             
      const textarea = e.target.closest('form').querySelector('textarea')
           
@@ -89,4 +101,16 @@ export default (obj) => {
     })
 
     return sectionWall;
+  }
+  export const toggleDisableTextarea = (textArea, select, postObject, btn) => {
+    if (textArea.disabled && select.disabled) {
+      btn.src = "../assets/save.png";
+      textArea.disabled = false;
+      select.disabled = false;
+    } else {
+      btn.src = "../assets/paper-plane.png";
+      textArea.disabled = true;
+      select.disabled = true;
+      return updatePost(postObject.id, textArea.value, select.value)
+    }
   }

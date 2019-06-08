@@ -24,7 +24,7 @@ export const traerDatos = () => {
   });
 }
 export const leerDatos = (user) => {
-  const docRef = db.collection("user").doc(`${user.uid}`);
+  const docRef = db.collection("user").doc(user.uid);
 
   return docRef.get()
     .then(function (doc) {
@@ -36,8 +36,14 @@ export const leerDatos = (user) => {
 
 export const collectionPost = (objeto) => {
   // currentUser(objeto)
-  
-  return db.collection("post").add(objeto)
+  console.log('aaaaaaaaaaaaaaa', objeto)
+  db.collection("post").add(objeto)
+    .then((doc) => {
+      console.log(doc)
+    })
+    .catch((err) => {
+      console.error(err)
+    })
 
 
 }
