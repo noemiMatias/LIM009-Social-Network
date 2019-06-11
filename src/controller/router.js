@@ -8,10 +8,12 @@ export const changeView = (route) => {
     console.log(route)
 switch (route) {
    case '': 
+
    {return root.appendChild(components.login())
   };
  
   case '#register':
+  
   { return root.appendChild(components.register())
    
   };
@@ -19,6 +21,7 @@ switch (route) {
      const funcionRecibeInfoDeUsuario = (user) => {
       leerDatos(user)
       .then((result)=>{
+        console.log('enter', result);
         root.appendChild(components.wall(result))
 
       })

@@ -59,6 +59,7 @@ export const signInEventfacebook = () => {
 }
 
 
+
 export const initFirebaseAuth = (callback) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {

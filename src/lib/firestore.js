@@ -83,9 +83,9 @@ export const deleteData = (id) => {
 //   });
 // }
 
- export const upDate = (obj,id) => {
+ export const upDate = (obj,id,select) => {
   const washingtonRef = db.collection("post").doc(id);
-  console.log(obj,id)
+  console.log(obj,id,select)
   // Set the "capital" field of the city 'DC'
   return washingtonRef.update(obj)
     .then(function () {

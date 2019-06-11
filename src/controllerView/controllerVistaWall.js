@@ -13,13 +13,13 @@ export const signOutEvent = () => {
 export const showPostEvent = (obj) => {
   // event.preventDefault()
    const textpost = document.querySelector('#post').value;
-  const select = document.querySelector('#select-privacity').value
+  const select = document.querySelector('#state').value
   const user = currentUser()
 
   const objPost = {
     textpost: textpost,
     uidUser: user.uid,
-    privacidad:select,
+    state:select,
     correo: user.email,
     name :user.displayName,
     photoUser:user.photoURL,
@@ -30,11 +30,12 @@ export const showPostEvent = (obj) => {
   collectionPost(objPost)
   document.querySelector('#post').value = '';
 }
-export const updateEvent = (textoPost,id) => {
+export const updateEvent = (textoPost, id, select) => {
+  console.log('editando')
  const obj={
    textpost:textoPost,
-   
+   state:select
  }
 
-upDate(obj,id)
+upDate(obj,id,select)
 }
