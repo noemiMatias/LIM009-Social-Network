@@ -14,7 +14,7 @@ export const registerEvent = () => {
             console.log(response)
             const userObject = {
                 name: nameUser,
-                email: response.user.email,
+                email:  emailRegister,
                 uidUser: response.user.uid,
                 photoUser: 'img/usuario.png'
             }
