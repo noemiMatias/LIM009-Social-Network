@@ -14,13 +14,13 @@ const fixtureData = {
                     email: 'lila1@gmail.com',
                     name: 'lila',
                     photoUser: "/img/usuario.png",
-                    uidUser: "3cscbQauTaYZHnQNc5Ulmlj9E974"
+                    uidUser: "abc123"
                 },
                 abc234: {
                     email: 'noemi@gmail.com',
                     name: 'noemi',
                     photoUser: "/img/usuario.png",
-                    uidUser: "3cscbQauTaYZHnQNc5Ulmlj9E123"
+                    uidUser: "abc234"
                 },
 
 
@@ -42,14 +42,15 @@ describe('collectionUser', () => {
         const user2 = {
             name: 'noemi',
             email: 'noemi@gmail.com',
-            uidUser: 'abc236',
+        
             photoUser: 'img/usuario.png'
         }
         return collectionUser(user2)
-            .then(() => {
+            .then((response) => {
+                
                 leerDatos(user2)
                     .then((objetoUser) => {
-                        console.log(objetoUser)
+                        
                         expect(objetoUser).toBe(objetoUser)
                     })
                 done()
@@ -60,20 +61,21 @@ describe('collectionUser', () => {
 
 describe('leerDatos', () => {
     it('traer los datos para pintar', (done) => {
-        // const user3 = {
-        //     name: 'noemi',
-        //     email: 'noemi@gmail.com',
-        //     uidser: ' abc234',
-        //     photoUser: 'img/usuario.png'
-        // }
-        return leerDatos('abc1d')
+        const user2 = {
+            name: 'noemi',
+            email: 'noemi@gmail.com',
+        
+            photoUser: 'img/usuario.png'
+        }
+        collectionUser(user2).then(()=>{
+            return leerDatos({name:'noemi',email:'noemi@gmail.com',photoUser:'img/usuario.png'})
             .then((response) => {
-                console.log(response, "rr")
+                console.log(response)
+                // expect(response).toBe(user3)
                 done()
             })
-
-
-        // expect(response).toBe(user3)
+        })
+       
 
     })
 })

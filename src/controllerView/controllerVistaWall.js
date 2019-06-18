@@ -37,5 +37,5 @@ export const updateEvent = (textoPost, id, select) => {
    state:select
  }
 
-upDate(obj,id,select)
+upDate(id,obj)
 }

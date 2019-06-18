@@ -110,27 +110,36 @@ body {
     }
      */
      * {
-        margin:0;
-        padding:1%;
+        margin:1px;
+        padding:1px;
         font-family:sans-serif;
         box-sizing:border-box;
     }
-    .profileUser{
-      display: flex;
-      flex-direction: column;
-      font-family: fantasy;
-      margin-left: 150px;
-      margin-top: 50px;
-    }
-    .dates-user{
-        font-family: 'Kalam', cursive;
+   
+    .photoUser{
+        display: flex;
+        justify-content:space-around;
+        flex-direction:row;
+        text-align: center;
+        
     }
     .img-userDefault{
-        margin-top: 10px;
+       
         height: 100px;
         width: 100px;
-       
+        text-align: center;
     }
+    .nameUser{
+        display: flex;
+        flex-direction:column;
+       
+        font-family: fantasy;
+        text-align: center;
+        
+      }
+      .dates-user{
+          font-family: 'Kalam', cursive;
+      }
     .img-logo{
         height: 200px;
         width: 200px;
@@ -161,15 +170,15 @@ body {
         .btn-login {
             background: linear-gradient(rgb(6, 170, 175),rgb(64, 255, 207));
             display: flex;
-            flex-direction: column;
+          
             border:0; 
-            color:#0d0d0e;
+            color:#fff;
             opacity:0.8; 
             cursor: pointer;
             border-radius: 20px;
-            margin: 20px 0;
+            /* margin: 20px 0; */
             padding: 10px;
-            width:60%;
+            width:50%;
            
         }
         .btn-login :active {
@@ -180,27 +189,40 @@ body {
           margin-bottom: 5%;
             margin-left: 40%
         }
-        .header{
+        /* .header{
             width: 100%;
             background: cadetblue;
-        }
-        .btn-singOut{
+        } */
+        
+        
+        .inicio-nav{
+            display:block;
+            background:cadetblue;
+            color: #fff;
+            padding:10px 30px;
             text-decoration: none;
-            background: linear-gradient(rgb(6, 170, 175),rgb(64, 255, 207));
-            padding: 15px 20px;
-            font-size: 10px;
-            border-radius: 30px;
+            margin:5px 0;
             cursor: pointer;
         }
-        .btn-singOut:hover {
-            background-color: rgb(75, 182, 224); /* Green */
-            color: white;
-          }
-       
-          .img-inicio{
-              width: 50px;
-              height: 40px;
-          }
+        .inicio-nav:hover{
+            background:rgb(12, 125, 129);
+        }
+        nav{
+            display: flex;
+            flex-direction: column;
+            background: lightseagreen;
+            justify-content:space-around;
+        }
+        .nav-boton{
+            display: inline-block;
+            background:cadetblue;
+            color: #fff;
+            padding: 7px 0;
+            border:2px solid #fff;
+        }
+        .desaparece{
+            display:none;
+        }
         .estilotextarea{
             width:70%;
             height:30%;
@@ -208,6 +230,7 @@ body {
             border-radius: 20px;
             font-family: 'Kalam', cursive;
             font-size: 20px;
+         
         }
         @media screen and (min-width:720px){
              .login-box{
@@ -223,9 +246,10 @@ body {
                 margin-right: 50%;
              
              }  
-             .profileUser{
-                flex-direction: row;
+             .nameUser{
                 display: flex;
+                flex-direction: row;
+              
                 /* flex-direction: column; */
                 font-family: fantasy;
                 margin-left: 150px;
@@ -238,4 +262,22 @@ body {
                 border: 2px solid #054723;
             
             }
+            nav{
+                display: flex;
+                flex-direction: row;
+                justify-content:space-around;
+    
+            }
+            .nav-boton{
+                display: block;
+            }
+            .desaparece{
+                display: block;
+            }
         }
+
+
+
+
+
+
