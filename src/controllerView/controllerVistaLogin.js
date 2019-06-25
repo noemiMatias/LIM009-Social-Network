@@ -10,10 +10,10 @@ export const signInEvent = (e) => {
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   login(email, password)
-  .then((response) => {
-    changeView("#wall")
-    console.log("estoy en el muro")
-  })
+    .then((response) => {
+      window.location.hash ="#wall";
+      console.log("estoy en el muro")
+    })
 
 
 
@@ -36,11 +36,11 @@ export const signInGoogleEvent = () => {
       photoUser: response.user.photoURL
 
     }
-    collectionUser(userObject).then(()=>{
-      changeView('#wall')
+    collectionUser(userObject).then(() => {
+      window.location.hash="#wall";
     })
 
-    
+
 
 
     console.log('esty en el muro')
@@ -63,9 +63,10 @@ export const signInEventfacebook = () => {
 export const initFirebaseAuth = (callback) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-callback(user)
+      callback(user)
+      
       console.log('estas activo')
-  
+
     } else {
       console.log('no estas activo')
     }

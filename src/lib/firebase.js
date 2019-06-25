@@ -22,6 +22,6 @@ export const currentUser = () => {
 export const signOut = () => {
   return firebase.auth().signOut()
 
-  console.log('cerraste sesion')
+ 
 
 }

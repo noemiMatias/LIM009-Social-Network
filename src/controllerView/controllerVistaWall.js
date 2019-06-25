@@ -16,13 +16,14 @@ export const showPostEvent = (obj) => {
   const select = document.querySelector('#state').value
   const user = currentUser()
 
+
   const objPost = {
     textpost: textpost,
     uidUser: user.uid,
     state:select,
     correo: user.email,
-    name :user.displayName,
-    photoUser:user.photoURL,
+    name :obj.name,
+    photoUser:obj.photoUser,
     fecha: new Date()
     
   }

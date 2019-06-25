@@ -18,7 +18,8 @@ export const collectionUser = (user) => {
 
 export const leerDatos = (user) => {
   const db = firebase.firestore()
-  const docRef = db.collection("user").doc(user.uid);
+
+  const docRef = db.collection("user").doc(`${user.uid}`);
 
   return docRef.get()
     .then(function (doc) {
@@ -27,7 +28,7 @@ export const leerDatos = (user) => {
 }
 
 
-
+//USER,POST,ESTADO
 export const collectionPost = (objeto) => {
   
   const db = firebase.firestore();

@@ -42,11 +42,3 @@ it('Debería iniciar sesion con gmail', () => {
 })
      
      
-    //  describe('signInWithGmail', () => {
-    //   it('debería registrar con gmail', () => {
-    //     return signInWithGmail()
-    //     .then((user)=> { 
-    //       expect(user.isAnonymous).toBe(false)  
-    //     })    
-    //   });
-    // })

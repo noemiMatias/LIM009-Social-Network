@@ -8,32 +8,33 @@ export const changeView = (route) => {
     console.log(route)
 switch (route) {
    case '': 
-
-   {return root.appendChild(components.login())
-  };
+   case '#':
+   case '#/':
+  case '#login':
+    root.appendChild(components.login());
+  break;
  
   case '#register':
-  
-  { return root.appendChild(components.register())
-   
-  };
+   root.appendChild(components.register());
+  break;
+
    case '#wall':{
-     const funcionRecibeInfoDeUsuario = (user) => {
-      leerDatos(user)
+     const funcionRecibeInfoDeUsuario = (usuario) => {
+       console.log(usuario)
+      leerDatos(usuario)
       .then((result)=>{
-        console.log('enter', result);
+        console.log(result);
         root.appendChild(components.wall(result))
 
       })
      }
-    initFirebaseAuth(funcionRecibeInfoDeUsuario)
-    
-    
+    initFirebaseAuth(funcionRecibeInfoDeUsuario) 
+  
   }; 
+  break;
  
-  default: { 
-    }
+  default: 
+     root.appendChild(components.login());
       break;
- }
-   
 }
+};

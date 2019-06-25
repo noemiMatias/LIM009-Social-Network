@@ -2,7 +2,7 @@
 
 import { changeView } from "./controller/router.js"
 
-const init = () => {
+export const init = () => {
 
     changeView(window.location.hash)
     window.addEventListener('hashchange', () => {

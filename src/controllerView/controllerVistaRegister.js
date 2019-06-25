@@ -11,7 +11,7 @@ export const registerEvent = () => {
 
     register(emailRegister, passwordRegister)
         .then((response) => {
-            console.log(response)
+            // console.log(response)
             const userObject = {
                 name: nameUser,
                 email:  emailRegister,
@@ -31,17 +31,6 @@ export const registerEvent = () => {
 }
 
 
-    //  const photoUser = response.user.photoURL;
-        // if (photoUser) {
-        //     photoUser === null './image/icono-login-user.png' 
-
-        // } else {
-
-        // }
-
-
-        // { const uid = response.uid
-        //     if response.photo =
-        //     else
+  
 
 

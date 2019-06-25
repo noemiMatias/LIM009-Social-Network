@@ -15,9 +15,10 @@ export default () => {
     `;
 
     formRegister.innerHTML = register;
-
+    formRegister.classList.add('formRegister');
     const btnRegister = formRegister.querySelector('#btn-register');
     btnRegister.addEventListener('click', registerEvent);
+
 
     return formRegister;
 

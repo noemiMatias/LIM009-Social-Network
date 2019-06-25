@@ -3,19 +3,23 @@ import { signInEvent, signInGoogleEvent, signInEventfacebook, initFirebaseAuth }
 
 export default () => {
   const sectionElement = document.createElement('section');
-  const divSignIn = `<div class=""img">
+  const divSignIn = `<div>
     <figure>
-    <img class="img-logo" src="img/logopc.png" alt="imagen de computadora"> 
+    <img class="img-logo" src="img/logo.png" alt="imagen de computadora"> 
+    <h1 class="tittle">ECO TIPS</h1>
+
     </figure>
     </div>
-    <div class="form">
+    <div class="form-input">
     <form>
-     <input id ="email" type="email" placeholder="email" class ="input-login"/>
-     <input id ="password" type="password" placeholder="&#128272; contraseña" class ="input-login"/>
-     <button id = "btn-signIn" type = "button" class="btn-login" > Log In </button>
+    <h2 class="Bienvenida"> Bienvenid@</h2>
+     <input id="email" type="email" placeholder="email" class ="input-login"/>
+     <input id="password" type="password" placeholder="&#128272; contraseña" class ="input-login"/>
+     <button id="btn-signIn" type ="button" class="btn-login" > Sign In </button>
      <p> Accede por </p>
+     
      <img id ="signIn-google" class="img-google" alt="imagen de google" height="30" width="36"src="img/google.png">
-     <button id = "facebook" type ="button"> facebook </button>
+     <img id = "facebook" class="facebook" height="30" width="36" src="img/facebook.png">
 
      <p>O bien ingresa con .. <a href="#register">Regístrate Aquí</a>
   
