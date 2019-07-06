@@ -86,11 +86,11 @@ describe('deleteData', () => {
         return deleteData('abc123').then(() => {
             const callback = (data) => {
 
-                 const result = data._data.map(elem => elem._id)
-                
-                console.log(result)
-            //  console.log(data._data.map(elem => elem._id))
-                expect(result).toBeUndefined('abc123')
+                const result = data._data.map(elem => elem._id)
+                const elmDelete = result.includes('abc123')
+
+
+                expect(elmDelete).toBe(false)
                 done()
             }
 
@@ -101,13 +101,12 @@ describe('deleteData', () => {
 
 describe('upDate', () => {
     it('deberia editar un post con id: abc567', (done) => {
-        return upDate('abc567' , {textpost:'editando post',state:'publico'}).then(() => {
-            // console.log(datafromfb);
-            
+        return upDate('abc567', { textpost: 'editando post', state: 'publico' }).then(() => {
+
             const callback = (data) => {
                 const result = data._data[1]._data.textpost;
-             
-              expect(result).toBe('editando post')
+
+                expect(result).toBe('editando post')
                 done()
 
             }

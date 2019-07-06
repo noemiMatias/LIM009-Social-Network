@@ -1,6 +1,5 @@
 
 
-// funcion firestore para obtener foto, correo y nombre de usuario
 export const collectionUser = (user) => {
   const db =firebase.firestore()
  return db.collection("user").doc(`${user.uidUser}`).set(user)
@@ -30,7 +29,7 @@ export const leerDatos = (user) => {
 
 //USER,POST,ESTADO
 export const collectionPost = (objeto) => {
-  
+
   const db = firebase.firestore();
   
   return db.collection("post").add(objeto)

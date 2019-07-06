@@ -1,43 +1,25 @@
 
 
-     * {
-        margin:0px;
-        padding:0px;
-        font-family:sans-serif;
-        /* box-sizing:border-box; */
-    }
+  
     .login-box {
        
-        display: flex;
-        padding: 10px;
-        
-        flex-direction: column;
-        position: absolute;
-        top: 20px;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        align-content:center;
-       
-        }
-        .facebook{
-            margin-left: 2%;
-            margin-bottom: 5%;
-        }
+       display: flex;
+       flex-direction: column;  
+    }
+    
+
+    
    
- .dates-user{
+    .dates-user {
     font-family: 'Hammersmith One', sans-serif;
-    
-    
- }
-        .photoUser{
+    }
+    .photoUser{
         
         justify-content:space-around;
-        text-align: center;
-        
+        text-align: center;  
     } 
     
-    .img-userDefault{
+    .img-userDefault {
        padding:5% 10% 0% 5%; 
         height: 80px;
         width: 100px;
@@ -45,28 +27,29 @@
     }
       
     
-      .info-user{
-     padding:0% 0% 0% 40%;
-     
+    .info-user{
+     padding:0% 0% 0% 34%;
      color: #02440b;
+     flex-direction: row;
+    }
+    .box-img{
+     /* background-color: aqua; */
       }
-      
     .img-logo{
-        width:200px;
-        height:200px;
-       margin-right:10% ;
-       margin-left:10%;
-        /* padding: 3%; */
-        /* flex-direction:column; */
-       
-        
+        display: flex;
+        height: 170px;
+        margin:auto;
+        margin-top:2%;
     }
-    .tittle{
-        font-family: 'Press Start 2P', cursive;
-        font-size: 20px;
+    .tittle {
+        font-family: 'Pacifico', cursive;
+        font-size: 35px;
         text-align: center;
+        color: #74d14c;
+        margin-top: 0%;
     }
-    .Bienvenida{
+
+    .Bienvenida {
         display: none;
         font-family: sans-serif;
         font-size: 19px;
@@ -75,56 +58,62 @@
         margin:0px;
         background:rgb(247, 251, 252);
         min-height: 100vh;
+        padding:0px;
+        font-family:sans-serif;
+        font-size: 13px;
         
         }
-        input:focus{
-            background-color: #d7eece;
-        }
+     input:focus{
+        background-color: #d7eece;
+    }
        
-        .input-login {
+    .input-login {
 
-             display: flex;
-            flex-direction: column; 
-            align-items: center;
-            padding: 8px;
-            width: 85%;
-            margin: 30px 10px;
-            font-size: 15px;
-            border-radius: 20px;
-           
+     display: flex;
+     flex-direction: column; 
+     align-items: center;
+     padding: 8px;
+     width: 85%;
+     margin:15px 16px;
+     font-size: 15px;
+     border-radius: 20px;
             
-        }
-        .btn-login {
-            background:#74d14c;
-            display: flex;
-            border:0; 
-            color:#fff;
-            opacity:0.8; 
-            cursor: pointer;
-            border-radius: 20px;
-            margin: auto; 
-            padding: 10px;
-            text-align: center;
-            width:40%;
-            top:40px;   
-            
-          
-        }
-        .btn-login :active {
-        transform: scale(0.8);
-        }
-        .img-google{
-            margin-top: 3%;
-          margin-bottom: 5%;
-            margin-left: 40%
-        }
-         .header{
-            width: 100%;
-            background: cadetblue;
-        } 
+    }
+    
+    .form-input{
+      margin-bottom: 2%;
+      margin-top:2%;
+      margin-left:5%;
+      margin-right: 5%;
+      text-align: center;
+    }
+    
+    .btn-login {
+     background:#74d14c;
+     display: flex;
+     color:#fff;
+     opacity:0.8; 
+     cursor: pointer;
+     border-radius: 20px;
+
+      padding: 2% 17%;
+     margin:5% 3% 4% 28%;
+     text-align: center;
+    }
+    
+    .btn-login :active {
+    transform: scale(0.8);
+    }
+
+    .header {
+     width: 100%;
+      background: cadetblue;
+     } 
+    .img-go-fb{
+        margin: 4% 4%;
+    }
         
-        
-        .inicio-nav{
+    .inicio-nav{
             display:block;
             background:#74d14c;
             color: #fff;
@@ -152,15 +141,23 @@
         .desaparece{
             display:none;
         }
+        .estilotextarea1{
+            padding: 10% 2% 4% 2%;
+            width:95%;
+            height:50px;
+            /* margin: 2% 5% 2% 2%; */
+            /* width: 85%; */
+            /* height: 80%; */
+        }
+        
         .btn-post{
-           margin-left: 10%;
+           
            opacity: 0.8;
            font-family: 'Hammersmith One', sans-serif;
             color: black;
-            /* background-color: rgb(190, 187, 187); */
              border-color: #c5f8af;
             cursor: pointer;
-           background: #c5f8af;
+           background: #74d14c;
             padding: 8px 10px 4px 8px;
             border-radius: 30px;
         } 
@@ -174,14 +171,14 @@
         }
         .estilotextarea{
             background: #fff;
-            padding: 2% 2% ;
+            padding: 10% 2% 4% 2%;
             width:95%;
             height:60px;
            
-            border-color: #fff;
-            border-block-end: solid #e6e6e6;
+            border-color: #e6e6e6;
+            /* border-block-end: solid #e6e6e6; */
             font-family: sans-serif;
-            font-size: 16px;
+            font-size: 19px;
             resize:both;
          
         }
@@ -189,15 +186,15 @@
             font-family: 'Arvo', serif;
         }
         .form_button{
+            font-size: 19px;
              padding-left: 10%; 
              border-style: solid;
              border-width: thin;
             background-color: white;
-             /* border-color: white; */
              color: #25572c;
              border-color:#fff;
              font-family: 'Hammersmith One', sans-serif;
-        
+             font-size: 17px;
         } 
         .guardar{
             margin-right:0%
@@ -207,13 +204,12 @@
             margin-bottom:3%;
         }
         .formRegister{
-            margin: 25% 4%  5%;
+            margin: 2% 4%  3%;
+            text-align: center;
 
         }
         @media screen and (min-width:720px){
-            body {
-                margin:28px;
-            }
+        
              .login-box{
                 display: flex; 
                 flex-direction: row;
@@ -237,6 +233,8 @@
             .desaparece{
                 display: block;
             }
+    
+
             .img{
                 margin-top:30px;
                 margin-right:60px;
@@ -262,13 +260,83 @@
                 margin-top:30px;
                 margin-right:60px;
             }
-            .info-user{
-                flex-direction:column;
+            .box-post{
+                display:flex;
+                width: 100%;
+                
             }
+           
             .form_button{
                flex-direction: column;
+               font-size: 13px;
+            } 
+           
+            .post{
+                background: #252657;
+               justify-content: center;
+               margin: 2%;
+               margin-right: 15%;
+                
+            }
+            .txt-compartir{
+        margin:auto;
+            }
+            .divPost{
+                      
+                margin-top: 2%;
+                margin-bottom: 2%;
+                margin-left: 40%;
+                width: 25%;
+                /* height: 10%; */
+                border-style: solid;
+               border-width: thin;
+               
+               background: rgb(165, 117, 117);
+               border-color: #c03434;
+               
+            }
+            
+             .estilotextarea{
+                display:block;
+               background: #fff;
+                        padding: 3%;
+                        align-content: center;
+                        /* width:450px; */
+                        /* height:150px; */
+                        font-size:15px;
+                        
+                        margin:2%;
+                        
+                    
+             }
+                 
+                    
+                     .info-user{
+                        float: left;
+                        margin-left: 20%;
+                        margin-right: 3%;
+                        width: 20%;
+                        margin-top:2% ;
+                        /* flex-direction: row; */
+                        padding:1% 1%;
+                        color: #02440b;
+                    
+                        border:solid #e6e6e6;
+
                     } 
-        }
+                    .tittle{
+                        font-size: 28px;
+                        flex: column;
+                        margin-left:30px;
+                    }
+                    .btn-login{
+                         padding: 10px 43px;                  
+                          } 
+                        
+                        }
+
+
+
 
 
 

@@ -9,30 +9,32 @@ export default (obj) => {
   const sectionWall = document.createElement('section');
   const postContent = ` <header class="header"> 
   <nav class="navbar">
-  <i class="fas fa-align-justify  nav-boton" id="menu"></i> 
+  <button id="menu" class="nav-boton"><i class="fas fa-bars"></i></button>
   <a href="#" class="inicio-nav desaparece">Inicio</a> 
   <a href="#" class="inicio-nav desaparece"> Cerrar Sesion </a>
   </nav>
   </header>
+  <div class="box-post">
+  <div class="info-user">
   <figure>
     <img class="img-userDefault" src=" ${obj.photoUser}">
     </figure>
-    <div class="info-user">
     <p class="date-user name">${obj.name}</p>
     <p class="date-user">${obj.email}</p>
     </div>
-  
-    <form class ="muro divPost">
-     <textarea class="estilotextarea" id ="post" name="texto" placeholder = "¿Que quieres compartir?" class ="texto-post"></textarea>
+    <div class="post">
+    <form>
+     <textarea class="txt-compartir" id ="post" name="texto" placeholder = "¿Que quieres compartir?" class ="texto-post"></textarea>
      <button  id="btn-post" type ="button" class="btn-post"><i class="far fa-share-square"></i>Compartir</button>
      <select id="state" class="form_button select">
      <option value="estado">¿Quien lo verá?</option>
        <option value="privado">Solo yo</option>
        <option value="publico">Mis amigos</option>
      </select>
-    
      </form>
-     
+     </div>
+     </div>
+    
      <div id="containerPost"></div>
 
     `;
@@ -66,9 +68,10 @@ export default (obj) => {
       if ((doc.data().state === "privado" && doc.data().uidUser === `${obj.uidUser}`) || (doc.data().state === "publico")) {
         console.log(doc.data())
         containerPost.innerHTML += `<div class="divPost">
-        <form id='formPost' class="form">
+        <form id='formPost'>
+
         <img  height="30" width="36"src=" ${doc.data().photoUser}">
-       <p>${doc.data().name}</p>
+         <p class="namePost">${doc.data().name}</p>
        
        <textarea class="estilotextarea"  name="texto"  data-id="${doc.id}" disabled spellcheck="true">${doc.data().textpost}</textarea>
        <button type="button" class="form_button"><i class="far fa-thumbs-up"></i> Me gusta</button>
@@ -80,7 +83,8 @@ export default (obj) => {
                 <option value="privado">Privado</option>
                 <option value="publico">Publico</option>
               </select>` : ""}
-        </form>`
+        </form> 
+        </div>`
 
 
       }
@@ -99,20 +103,19 @@ export default (obj) => {
         const textarea = e.target.closest('form').querySelector('textarea')
         const newSelect = e.target.closest('form').querySelector('select')
 
-        if (e.target.textContent =="Editar") {
+        if (e.target.innerHTML = ` <i class="far fa-edit"></i>Editar`) {
           textarea.disabled = false;
           newSelect.disabled = false;
-          e.target.textContent ="guardar"
-
+          e.target.textContent = "guardar"
+          return updateEvent(textarea.value, textarea.dataset.id, newSelect.value)
 
         } else {
 
           textarea.disabled = true;
-          e.target.textContent = "Editar"
-          return updateEvent(textarea.value, textarea.dataset.id, newSelect.value)
+          e.target.innerHTML = `<i class="far fa-edit"></i>Editar`
+
+         
         }
-
-
 
       })
     )

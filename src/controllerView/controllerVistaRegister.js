@@ -1,8 +1,8 @@
 
 import { register } from "../lib/firebase.js";
 import { collectionUser } from "../lib/firestore.js";
-import { changeView } from "../controller/router.js";
-
+import { changeHash } from "./controllerVistaLogin.js";
+import {firtsMessageError} from "./controllerVistaLogin.js"
 
 export const registerEvent = () => {
     const emailRegister = document.querySelector('#email-register').value;
@@ -11,19 +11,18 @@ export const registerEvent = () => {
 
     register(emailRegister, passwordRegister)
         .then((response) => {
-            // console.log(response)
             const userObject = {
                 name: nameUser,
-                email:  emailRegister,
+                email: emailRegister,
                 uidUser: response.user.uid,
                 photoUser: 'img/usuario.png'
             }
-            // const nameUs = response.user.displayName;
-            changeView('#wall', userObject)
-            collectionUser(userObject)
-            console.log('esty en el muro')
+           
+            collectionUser(userObject).then(()=>{
+               changeHash('wall')
+            })
                 .catch(error => {
-                    console.error(error);
+                   firtsMessageError(error)
 
                 })
 
@@ -31,6 +30,6 @@ export const registerEvent = () => {
 }
 
 
-  
+
 
 
